@@ -461,10 +461,33 @@ GameEngine.prototype.addObject = function(object, cache)
 
 GameEngine.prototype.removeObject = function(obj)
 {
-    this.objects = this.objects.delete(obj);
-    this.blockingObjects = this.blockingObjects.delete(obj);
-    this.drawableObjects = this.drawableObjects.delete(obj);
-    this.triggeringObjects = this.triggeringObjects.delete(obj);
+    var ary = [];
+	for (var i = 0; i < this.objects.length; i++) {
+		if (!(this.objects[i] == obj)) {
+			ary[ary.length] = this.objects[i];
+		}
+	}
+	this.objects = ary;
+	var ary = [];
+	for (var i = 0; i <  this.blockingObjects.length; i++) {
+		if (!( this.blockingObjects[i] == obj)) {
+			ary[ary.length] =  this.blockingObjects[i];
+		}
+	}
+	this.blockingObjects = ary;
+	var ary = [];
+	for (var i = 0; i <  this.drawableObjects.length; i++) {
+		if (!( this.drawableObjects[i] == obj)) {
+			ary[ary.length] =  this.drawableObjects[i];
+		}
+	}
+	this.drawableObjects = ary;
+	for (var i = 0; i <  this.triggeringObjects; i++) {
+		if (!( this.triggeringObjects[i] == obj)) {
+			ary[ary.length] =  this.triggeringObjects[i];
+		}
+	}
+	this.triggeringObjects = ary;
 
     if(obj.id)
     {
