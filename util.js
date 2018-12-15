@@ -86,7 +86,8 @@ Array.prototype.find = function(f)
 };
 
 // delete one element by value
-Array.prototype.delete = function(v)
+/*Array.prototype.delete = function(v)
+
 {
     var index = this.indexOf(v);
 
@@ -96,7 +97,7 @@ Array.prototype.delete = function(v)
     }
 
     return this;
-};
+};*/
 
 // concatMap :: (a -> [b]) -> [a] -> [b]
 // Map a function over a list and concatenate the results. 
